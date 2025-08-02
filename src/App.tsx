@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import CourseGoalList from "./Components/CourseGoalList";
+import Header from "./Components/Header";
+import globalImage from "./assets/react.svg";
+import AddGoal from "./Components/AddGoal";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export interface CourseGoalInterface {
+  id: number;
+  title: string;
+  description: string;
 }
 
-export default App
+function App() {
+  const [goalsList, setGoalsList] = useState<CourseGoalInterface[]>([]);
+
+  const handleAddGoal = (title: string, description: string) => {
+    const newGoal: CourseGoalInterface = {
+      id: Date.now(), // Using timestamp as a unique ID
+      title: title,
+      description: description,
+    };
+    setGoalsList((prevGoals) => [...prevGoals, newGoal]);
+  };
+
+  const handleDeleteGoal = (id: number) => {
+    setGoalsList((prevGoals) => prevGoals.filter((goal) => goal.id !== id));
+  };
+  return (
+    <>
+      <Header img={{ src: globalImage, alt: "Global Image" }}>
+        <p>This is the header content.</p>
+      </Header>
+      <h1>Course Goals</h1>
+      <p>Manage your course goals effectively.</p>
+      <div>
+        <AddGoal onAddGoal={handleAddGoal} />
+        <CourseGoalList goalsList={goalsList} onDelete={handleDeleteGoal} />
+      </div>
+    </>
+  );
+}
+
+export default App;
