@@ -45,15 +45,47 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  border: 1px solid grey;
-  padding: 1rem;
+  gap: 1.5rem;
+  border: 1px solid #e0e0e0;
+  background: #f9fafe;
+  padding: 2rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(100, 108, 255, 0.07);
+}
 
-  .course-goal {
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 10%;
-  }
- 
+.goals-list .course-goal {
+  padding: 1.25rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  width: 220px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(100, 108, 255, 0.06);
+  font-size: 1.05rem;
+  color: #333;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+
+.goals-list .course-goal:hover {
+  border-color: #646cff;
+  box-shadow: 0 4px 16px rgba(100, 108, 255, 0.15);
+  transform: translateY(-2px) scale(1.03);
+  background: #f0f4ff;
+}
+
+.styled-input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  max-width: 350px;
+  box-sizing: border-box;
+}
+
+.styled-input:focus {
+  border-color: #646cff;
+  box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.15);
 }

@@ -4,6 +4,7 @@ import CourseGoalList from "./Components/CourseGoalList";
 import Header from "./Components/Header";
 import globalImage from "./assets/react.svg";
 import AddGoal from "./Components/AddGoal";
+import Button from "./Components/Button";
 
 export interface CourseGoalInterface {
   id: number;
@@ -16,7 +17,7 @@ function App() {
 
   const handleAddGoal = (title: string, description: string) => {
     const newGoal: CourseGoalInterface = {
-      id: Date.now(), // Using timestamp as a unique ID
+      id: Date.now(),
       title: title,
       description: description,
     };
@@ -29,14 +30,18 @@ function App() {
   return (
     <>
       <Header img={{ src: globalImage, alt: "Global Image" }}>
-        <p>This is the header content.</p>
+        <p>React TypeScript Course</p>
       </Header>
-      <h1>Course Goals</h1>
-      <p>Manage your course goals effectively.</p>
-      <div>
-        <AddGoal onAddGoal={handleAddGoal} />
-        <CourseGoalList goalsList={goalsList} onDelete={handleDeleteGoal} />
-      </div>
+
+      <Button en="button" onClick={() => console.log("Button clicked!")}>
+        Click Me
+      </Button>
+      <Button en={"link"} href={"https://www.google.com"}>
+        Go to React
+      </Button>
+
+      <AddGoal onAddGoal={handleAddGoal} />
+      <CourseGoalList goalsList={goalsList} onDelete={handleDeleteGoal} />
     </>
   );
 }

@@ -8,7 +8,6 @@ interface HeaderProps {
 export default function Header({ img, children }: HeaderProps) {
   return (
     <header>
-      <h1>Welcome to the Course</h1>
       <img src={img?.src || ""} alt={img?.alt || "Course Image"} />
       <br />
       {children}

@@ -19,15 +19,24 @@ export default function AddGoal({ onAddGoal }: AddGoalProps) {
     <div>
       <h2>Add a New Goal</h2>
       <form onSubmit={handleAddGoal}>
-        <label>
-          Title:
-          <input type="text" name="title" ref={titleRef} />
-        </label>
-        <br />
-        <label>
-          Description:
-          <input type="text" name="description" ref={descriptionRef} />
-        </label>
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <label htmlFor="title">Title:</label>
+          <input
+            className="styled-input"
+            type="text"
+            name="title"
+            id="title"
+            ref={titleRef}
+          />
+          <label htmlFor="description" style={{ marginLeft: "1rem" }}>Description:</label>
+          <input
+            className="styled-input"
+            type="text"
+            name="description"
+            id="description"
+            ref={descriptionRef}
+          />
+        </div>
         <br />
         <button type="submit">Add Goal</button>
       </form>
