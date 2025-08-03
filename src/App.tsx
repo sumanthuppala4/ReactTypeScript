@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import globalImage from "./assets/react.svg";
 import AddGoal from "./Components/AddGoal";
 import Button from "./Components/Button";
+import PolyMorphicComponent from "./Components/PolyMorphicComponent";
 
 export interface CourseGoalInterface {
   id: number;
@@ -42,6 +43,13 @@ function App() {
 
       <AddGoal onAddGoal={handleAddGoal} />
       <CourseGoalList goalsList={goalsList} onDelete={handleDeleteGoal} />
+
+      <PolyMorphicComponent
+        as={"button"}
+        onClick={() => console.log("PolyMorphic Button Clicked!")}
+      >
+        Click Me
+      </PolyMorphicComponent>
     </>
   );
 }
